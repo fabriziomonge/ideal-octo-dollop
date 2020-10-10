@@ -20,7 +20,7 @@ if uploaded_file1 is not None:
     # Open Paddington
     st.write('''### Immagine originale''')
     img = Image.open(uploaded_file1)
-    st.image(img)
+    st.image(img, use_column_width=True)
     # Resize smoothly down to 16x16 pixels
 
     cube = st.sidebar.slider('definizione', 20,60)
@@ -34,7 +34,7 @@ if uploaded_file1 is not None:
     
 #     fig = plt.imshow(result)
     st.write('''### Immagine modificata''')
-    st.image(result)
+    st.image(result, use_column_width=True)
 
 
 # In[3]:
