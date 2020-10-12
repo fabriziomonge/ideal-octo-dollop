@@ -28,12 +28,12 @@ if uploaded_file1 is not None:
     st.image(img, use_column_width=True)
     # Resize smoothly down to 16x16 pixels
 
-    cube = st.sidebar.slider('definizione', 20,60)
+    cube = st.sidebar.slider('definizione', 20,60, 30)
 #     cube = int(cube)
-    contrast = st.sidebar.slider('Contrasto', 1,10)/10
-    colore = st.sidebar.slider('Colore', 1,10)/10
-    luminosita = st.sidebar.slider('Luminosità', 1,10)/10
-    nitidezza = st.sidebar.slider('Nitidezza', 1,10)/10
+    contrast = st.sidebar.slider('Contrasto', 1,10, 10)/10
+    colore = st.sidebar.slider('Colore', 1,10, 10)/10
+    luminosita = st.sidebar.slider('Luminosità', 1,10, 10)/10
+    nitidezza = st.sidebar.slider('Nitidezza', 1,10, 10)/10
     
    
 
