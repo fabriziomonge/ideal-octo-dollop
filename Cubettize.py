@@ -1,17 +1,18 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[5]:
+# In[112]:
 
 
 import matplotlib.pyplot as plt
 import streamlit as st
 from PIL import Image
+from PIL import ImageEnhance
 
 st.title("Kubettize App for Pyssla")
 
-image = Image.open('KUBETTIZE.png')
-st.sidebar.image(image, use_column_width=True)
+# image = Image.open('KUBETTIZE.png')
+# st.sidebar.image(image, use_column_width=True)
 
 uploaded_file1 = st.sidebar.file_uploader("Carica l'immagine da cubettizare", type=["jpg"])
 
@@ -24,6 +25,13 @@ if uploaded_file1 is not None:
     # Resize smoothly down to 16x16 pixels
 
     cube = st.sidebar.slider('definizione', 20,60)
+#     cube = int(cube)
+    contrast = st.sidebar.slider('Contrasto', 1,10)/10
+    colore = st.sidebar.slider('Colore', 1,10)/10
+    luminosita = st.sidebar.slider('Luminosità', 1,10)/10
+    nitidezza = st.sidebar.slider('Nitidezza', 1,10)/10
+    
+   
 
     imgSmall = img.resize((cube,cube),resample=Image.BILINEAR)
 
@@ -31,20 +39,23 @@ if uploaded_file1 is not None:
     result = imgSmall.resize(img.size,Image.NEAREST)
 
     # Save
+    enhancer = ImageEnhance.Contrast(result)
+    result = enhancer.enhance(contrast)
+    
+    enhancer2 = ImageEnhance.Color(result)
+    result1 = enhancer2.enhance(colore)
+    
+    enhancer3 = ImageEnhance.Brightness(result1)
+    result2 = enhancer3.enhance(luminosita)
+    
+    enhancer4 = ImageEnhance.Brightness(result2)
+    result3 = enhancer3.enhance(luminosita)
+    
+#     st.write(contrast, colore, luminosita )
+    
+    
     
 #     fig = plt.imshow(result)
     st.write('''### Immagine modificata''')
-    st.image(result, use_column_width=True)
-
-
-# In[3]:
-
-
-
-
-
-# In[ ]:
-
-
-
+    st.image(result3, use_column_width=True)
 
