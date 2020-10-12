@@ -11,8 +11,12 @@ from PIL import ImageEnhance
 
 st.title("Kubettize App for Pyssla")
 
-# image = Image.open('KUBETTIZE.png')
-# st.sidebar.image(image, use_column_width=True)
+st.write("""#### 
+A simple web application that allows you to pixelize images in order to make them easily achievable with Pyssla or similar.
+Made for my son on October 10, 2020""")
+
+image = Image.open('KUBETTIZE.png')
+st.sidebar.image(image, use_column_width=True)
 
 uploaded_file1 = st.sidebar.file_uploader("Carica l'immagine da cubettizare", type=["jpg"])
 
